@@ -9,10 +9,10 @@
 		</layout>
 	</appender>
 
-	<logger name="org.mongeez.Mongeez" level="trace"/>
-	<logger name="org.mongeez.ChangeSetExecutor" level="trace"/>
+	<logger name="org.mongeez.Mongeez" level="TRACE"/>
+	<logger name="org.mongeez.ChangeSetExecutor" level="TRACE"/>
 
-	<root level="error">
+	<root level="ERROR">
 		<appender-ref ref="STDOUT" />
 	</root>
 

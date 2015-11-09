@@ -13,6 +13,8 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.lang3.StringUtils;
 import org.mongeez.MongeezRunner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.UrlResource;
 import org.springframework.util.ResourceUtils;
 
@@ -20,6 +22,8 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 
 public class Main {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
 	public static void main(String[] args) throws AlreadySelectedException {
 
@@ -95,10 +99,11 @@ public class Main {
 				}
 			}
 
-		} catch (ParseException exp) {
+		} catch (ParseException e) {
+			LOGGER.warn("Can not parse the line", e);
 			printHelp(global);
 		} catch (Exception e) {
-			System.err.println("Well, fuck..." + e.getMessage());
+			LOGGER.error("Well...", e);
 		}
 	}
 
